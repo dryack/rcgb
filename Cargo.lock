@@ -159,8 +159,10 @@ dependencies = [
 name = "rcgb"
 version = "0.1.0"
 dependencies = [
+ "atty",
  "clap",
  "iota",
+ "libc",
 ]
 
 [[package]]

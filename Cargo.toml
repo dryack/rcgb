@@ -10,3 +10,9 @@ license = "MIT"
 [dependencies]
 clap = "3.0.0-beta.2"
 iota =  "0.2.2"
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2.95"
+
+[target.'cfg(windows)'.dependencies]
+atty = "0.2.14"

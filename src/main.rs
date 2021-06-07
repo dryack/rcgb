@@ -21,6 +21,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 use clap::clap_app;
+use crate::tty::istty;
+mod tty;
 mod vars;
 
 fn max_precision(v: &str) -> Result<(), String> {
@@ -51,6 +53,7 @@ fn main() {
         (@arg INPUT: +takes_value +required +multiple "Numbers to convert")
     ).get_matches();
 
+    println!("{}", istty());
     if matches.is_present("tib") {
         println!("tib found!")
     }

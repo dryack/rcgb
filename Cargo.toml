@@ -1,0 +1,12 @@
+[package]
+name = "rcgb"
+version = "0.1.0"
+authors = ["dryack <dave.ryack@gmail.com>"]
+edition = "2018"
+license = "MIT"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = "3.0.0-beta.2"
+iota =  "0.2.2"

@@ -31,17 +31,9 @@ mod tty;
 mod read_from_stdio;
 mod vars;
 
-fn max_precision(v: &str) -> Result<(), String> {
-    if v.parse::<u8>().unwrap() > vars::MAX_PRECISION {
-        Err(String::from("maximum precision supported is 9"))
-    } else {
-        return Ok(())
-    }
-}
-
 fn main() {
     let mut app = clap_app!(rcgb =>
-        (version: "0.02")
+        (version: "1.00")
         (author: "dryack <git.lamashtu@gmail.com>")
         //(license: "MIT")
         (about: "Compute GigaBytes (in Rust): A kluge that accepts numerical input and spits out the value in Gigabytes, Megabytes, or Kilobytes.")
@@ -55,7 +47,7 @@ fn main() {
         (@arg enumerate: -e --enum +takes_value default_value("false") "enumerate results")
         (@arg suppress: -s --suppress "suppress SI postfix")
         (@arg nowarn: -W --("no-warnings") "suppress warnings when invalid numbers are submitted; the processing will continue")
-        (@arg prec: -p --precision +takes_value default_value("2") validator(max_precision) "show results with a precision of N decimal places (max: 9)")
+        (@arg prec: -p --precision +takes_value default_value("2") possible_values(&["0","1","2","3","4","5","6","7","8","9"]) "show results with a precision of N decimal places (max: 9)")
         (@arg INPUT: +takes_value +multiple "Numbers to convert")
     );
     let matches = app.clone().get_matches();

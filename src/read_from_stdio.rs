@@ -6,8 +6,7 @@ pub(crate) fn read_from_stdin() -> Vec<String> {
     let mut input = String::new();
     match io::stdin().read_line(&mut input) {
         Ok(_n) => {
-            // TODO: strip \r\n or \n from STDIN
-            incoming.push(input)
+            incoming.push(input.trim_end().parse().unwrap())
         }
         Err(error) => println!("error: {}", error)
     }

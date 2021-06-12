@@ -33,7 +33,7 @@ mod vars;
 
 fn main() {
     let mut app = clap_app!(rcgb =>
-        (version: "1.00")
+        (version: "0.10")
         (author: "dryack <git.lamashtu@gmail.com>")
         //(license: "MIT")
         (about: "Compute GigaBytes (in Rust): A kluge that accepts numerical input and spits out the value in Gigabytes, Megabytes, or Kilobytes.")
